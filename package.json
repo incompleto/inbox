@@ -1,0 +1,27 @@
+{
+  "name": "incompleto-links",
+  "version": "0.0.1",
+  "description": "are.na -> rss",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "dotenv": "^8.0.0",
+    "are.na": "^0.1.1",
+    "rss": "^1.2.2"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/hello-express"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}
