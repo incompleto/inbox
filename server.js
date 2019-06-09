@@ -75,8 +75,8 @@ app.get("/feed", function(request, response) {
     });
 });
 
-app.get("/feed", function(request, response) {
-  res.sendFile("public/index.html");
+app.get("/", function(req, res) {
+  res.render("public/index.html");
 });
 
 const listener = app.listen(process.env.PORT, function() {
