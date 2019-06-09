@@ -1,5 +1,5 @@
 {
-  "name": "incompleto-links",
+  "name": "inbox-zero",
   "version": "0.0.1",
   "description": "are.na -> incomple.to",
   "main": "server.js",
@@ -7,16 +7,17 @@
     "start": "PORT=5000 node server.js"
   },
   "dependencies": {
+    "axios": ">=0.18.1",
     "are.na": "^0.1.1",
     "dotenv": "^8.0.0",
     "express": "^4.16.4",
     "rss": "^1.2.2"
   },
-  "engines": {
-    "node": "8.x"
+  "devDependencies": {
+    "axios": ">=0.18.1"
   },
   "repository": {
-    "url": "git@github.com:incompleto/links.git"
+    "url": "git@github.com:incompleto/inbox-zero.git"
   },
   "license": "MIT",
   "keywords": [
