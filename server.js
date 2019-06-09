@@ -13,7 +13,8 @@ const PER_PAGE = 25;
 
 const generateFeedFromChannel = channel => {
   let feed = new rss({
-    title: channel.title,
+    // title: channel.title,
+    title: "Incompleto – Inbox zero",
     description: channel.metadata.description,
     feed_url: "https://inbox.incomple.to",
     site_url: SITE_URL,
