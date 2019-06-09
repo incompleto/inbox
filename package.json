@@ -1,7 +1,7 @@
 {
   "name": "incompleto-links",
   "version": "0.0.1",
-  "description": "are.na -> rss",
+  "description": "are.na -> incomple.to",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -16,7 +16,7 @@
     "node": "8.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/hello-express"
+    "url": "git@github.com:incompleto/links.git"
   },
   "license": "MIT",
   "keywords": [
