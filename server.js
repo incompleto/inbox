@@ -15,7 +15,7 @@ const generateFeedFromChannel = channel => {
   let feed = new rss({
     title: channel.title,
     description: channel.metadata.description,
-    feed_url: "https://links.incomple.to",
+    feed_url: "https://inbox.incomple.to",
     site_url: SITE_URL,
     author: AUTHOR
   });
