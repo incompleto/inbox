@@ -7,7 +7,7 @@ const arena = new Arena();
 const rss = require("rss");
 
 const URL = "inbox-zero";
-const AUTHOR = "incomple.to";
+const AUTHOR = "Incompleto";
 const SITE_URL = "https://www.are.na/incompleto/inbox-zero";
 const PER_PAGE = 25;
 
@@ -49,7 +49,7 @@ const generateFeedFromChannel = channel => {
 
 app.use(express.static("public"));
 
-app.get("/feed", function(request, response) {
+app.get("/rss", function(request, response) {
   let per = PER_PAGE;
 
   arena
