@@ -8,7 +8,6 @@ const rss = require("rss");
 
 const URL = "inbox-zero";
 const TITLE = "Incompleto – Inbox zero"; // channel.title
-const DESCRIPTION = channel.metadata.description;
 const FEED_URL = "https://inbox.incomple.to";
 const SITE_URL = "https://www.are.na/incompleto/inbox-zero";
 const AUTHOR = "Incompleto";
@@ -17,7 +16,7 @@ const PER_PAGE = 25;
 const generateFeedFromChannel = channel => {
   let feed = new rss({
     title: TITLE,
-    description: DESCRIPTION,
+    description: channel.metadata.description,
     feed_url: FEED_URL,
     site_url: SITE_URL,
     author: AUTHOR
