@@ -3,7 +3,8 @@ FROM node:latest
 RUN mkdir -p /app
 WORKDIR /app
 
-COPY package.json package-lock.json .
+COPY package.json .
+COPY package-lock.json .
 RUN npm ci
 
 COPY . .
