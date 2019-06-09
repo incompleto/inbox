@@ -1,1 +1,1 @@
-web: node server.js
+web: PORT=5000 node server.js
