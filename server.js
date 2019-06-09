@@ -7,16 +7,18 @@ const arena = new Arena();
 const rss = require("rss");
 
 const URL = "inbox-zero";
-const AUTHOR = "Incompleto";
+const TITLE = "Incompleto – Inbox zero"; // channel.title
+const DESCRIPTION = channel.metadata.description;
+const FEED_URL = "https://inbox.incomple.to";
 const SITE_URL = "https://www.are.na/incompleto/inbox-zero";
+const AUTHOR = "Incompleto";
 const PER_PAGE = 25;
 
 const generateFeedFromChannel = channel => {
   let feed = new rss({
-    // title: channel.title,
-    title: "Incompleto – Inbox zero",
-    description: channel.metadata.description,
-    feed_url: "https://inbox.incomple.to",
+    title: TITLE,
+    description: DESCRIPTION,
+    feed_url: FEED_URL,
     site_url: SITE_URL,
     author: AUTHOR
   });
