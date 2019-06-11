@@ -7,7 +7,7 @@ body {
 }
 
 body {
-  background: #f1f1f1;
+  background: #f6f6f6;
   position: relative;
   font-family: sans-serif;
 }
@@ -24,11 +24,12 @@ canvas {
 }
 
 main {
-  width: 60%;
   margin-left: 200px;
   min-width: 400px;
-  max-width: 600px;
+  max-width: 800px;
   margin-top: 3.2rem;
+  margin-right: 3.2rem;
+  overflow: auto;
 }
 
 section {
@@ -36,8 +37,7 @@ section {
   justify-content: flex-start;
   margin-bottom: 1.6rem;
   padding-bottom: 1.6rem;
-  border-bottom: 1px solid #ccc;
-  overflow: hidden;
+  border-bottom: 1px dashed #ddd;
 }
 
 section .cover {
@@ -56,15 +56,33 @@ section .desc {
 section .desc h2,
 section .desc p {
   margin: 0;
+  line-height: 1.3rem;
 }
 
 section .desc h2 {
   font-size: 0.9rem;
-  text-overflow: ellipsis;
   margin-bottom: 1.6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: normal;
 }
 
 section .desc p {
   font-size: 0.9rem;
   margin: 0;
+}
+
+footer {
+  margin-bottom: 1.6rem;
+}
+
+footer ul {
+  margin: 0;
+  padding: 0;
+}
+
+footer li {
+  display: inline;
+  margin-right: 1rem;
 }
