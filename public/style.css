@@ -17,11 +17,16 @@ a {
 }
 
 canvas {
+  cursor: grab;
   width: 200px;
   height: 200px;
   position: fixed;
   top: 0;
   left: 0;
+}
+
+canvas:active {
+  cursor: grabbing;
 }
 
 main {
