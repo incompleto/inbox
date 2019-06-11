@@ -1,21 +1,27 @@
 require("dotenv").config();
 
-const express = require("express");
-const app = express();
 const Arena = require("are.na");
 const arena = new Arena();
 const rss = require("rss");
 
+const express = require("express");
+const path = require("path");
+const app = express();
+
 const URL = "inbox-zero";
-const TITLE = "Incompleto – Inbox zero"; // channel.title
+const TITLE = "Incompleto – Inbox zero";
 const FEED_URL = "https://inbox.incomple.to";
 const SITE_URL = "https://www.are.na/incompleto/inbox-zero";
 const AUTHOR = "Incompleto";
 const PER_PAGE = 25;
 
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+app.use(express.static("public"));
+
 const generateFeedFromChannel = channel => {
   let feed = new rss({
-    title: TITLE,
+    title: TITLE, // channel.title
     description: channel.metadata.description,
     feed_url: FEED_URL,
     site_url: SITE_URL,
@@ -29,18 +35,17 @@ const generateFeedFromChannel = channel => {
       url = item.source.url;
     }
 
-    let description;
-
     if (item && item.image) {
-      description = `<img src="${item.image.display.url}" />`;
+      enclosure = {
+        url: item.image.display.url
+      };
     }
-
-    description += item.description_html;
 
     feed.item({
       title: item.title,
-      description,
+      description: item.description_html,
       url,
+      enclosure,
       author: item.author,
       date: item.updated_at
     });
@@ -49,36 +54,43 @@ const generateFeedFromChannel = channel => {
   return feed;
 };
 
-app.use(express.static("public"));
+const getBlocksFromChannel = channel => {
+  let page = Math.ceil(channel.length / PER_PAGE);
 
-app.get("/rss", function(request, response) {
-  let per = PER_PAGE;
-
-  arena
-    .channel(URL, { per })
+  return arena
+    .channel(URL, { page, PER_PAGE })
     .get()
-    .then(chan => {
-      let page = Math.ceil(chan.length / per);
-
-      const getBlocks = channel => {
-        let feed = generateFeedFromChannel(channel);
-        response.setHeader("Content-Type", "application/rss+xml");
-        response.send(feed.xml({ indent: true }));
-      };
-
-      arena
-        .channel(URL, { page, per })
-        .get()
-        .then(getBlocks);
-    })
+    .then(generateFeedFromChannel)
     .catch(error => {
       console.log(error);
-      response.json({ error });
     });
+};
+
+const getFeed = () => {
+  return arena
+    .channel(URL, { PER_PAGE })
+    .get()
+    .then(getBlocksFromChannel)
+    .catch(error => {
+      console.log(error);
+    });
+};
+
+app.get("/rss", function(request, response) {
+  let feed = getFeed();
+
+  feed.then(function(result) {
+    response.setHeader("Content-Type", "application/rss+xml");
+    response.send(result.xml({ indent: true }));
+  });
 });
 
 app.get("/", function(req, res) {
-  res.render("public/index.html");
+  let feed = getFeed();
+
+  feed.then(function(result) {
+    res.render("index", { feed: result });
+  });
 });
 
 const listener = app.listen(process.env.PORT, function() {

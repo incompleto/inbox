@@ -7,9 +7,10 @@
     "start": "PORT=5000 node server.js"
   },
   "dependencies": {
-    "axios": "^0.18.1",
     "are.na": "^0.1.1",
+    "axios": "^0.18.1",
     "dotenv": "^8.0.0",
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
     "rss": "^1.2.2"
   },

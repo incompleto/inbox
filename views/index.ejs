@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Incompleto – Inbox zero</title>
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Incompleto – Inbox zero"
+      href="https://inbox.incomple.to/rss"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <canvas class="zdog-canvas" width="200" height="200"></canvas>
+    </header>
+
+    <main>
+      <% feed.items.forEach(function(item){ %>
+        <section>
+          <div class="cover">
+            <a href="<%= item.url %>">
+              <img src="<%= item.enclosure.url %>" />
+            </a>
+          </div>
+
+          <div class="desc">
+            <h2><a href="<%= item.url %>"><%= item.url %></a></h2>
+
+            <%- item.description %>
+          </div>
+        </section>
+      <% }); %>
+
+      <footer>
+        <ul>
+          <li><a href="https://are.na/incompleto/inbox-zero">Are.na</a></li>
+          <li><a href="/rss">RSS Feed</a></li>
+        </ul>
+      </footer>
+    </main>
+
+
+    <script src="https://unpkg.com/zdog@1/dist/zdog.dist.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

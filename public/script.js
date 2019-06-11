@@ -5,7 +5,7 @@ const TAU = Zdog.TAU;
 let illo = new Zdog.Illustration({
   element: ".zdog-canvas",
   dragRotate: true,
-  zoom: 2
+  zoom: 1
 });
 
 // Mail

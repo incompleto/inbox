@@ -7,19 +7,64 @@ body {
 }
 
 body {
-  background: #fff;
+  background: #f1f1f1;
   position: relative;
+  font-family: sans-serif;
+}
+
+a {
+  color: #4196bf;
 }
 
 canvas {
-  cursor: grab;
   height: 100%;
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
-canvas:active {
-  cursor: grabbing;
+main {
+  width: 60%;
+  margin-left: 200px;
+  min-width: 400px;
+  max-width: 600px;
+  margin-top: 3.2rem;
+}
+
+section {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1.6rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid #ccc;
+  overflow: hidden;
+}
+
+section .cover {
+  width: 30%;
+}
+
+section .cover img {
+  width: 100%;
+}
+
+section .desc {
+  width: 65%;
+  margin-left: 5%;
+}
+
+section .desc h2,
+section .desc p {
+  margin: 0;
+}
+
+section .desc h2 {
+  font-size: 0.9rem;
+  text-overflow: ellipsis;
+  margin-bottom: 1.6rem;
+}
+
+section .desc p {
+  font-size: 0.9rem;
+  margin: 0;
 }
