@@ -56,7 +56,7 @@ header p {
 }
 
 .link {
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
   display: block;
   cursor: default;
 }
@@ -167,7 +167,7 @@ footer a:active {
 
 @media only screen and (max-width: 760px) {
   body {
-    padding: 30px;
+    padding: 40px;
   }
 
   canvas {
