@@ -167,7 +167,7 @@ footer a:active {
 
 @media only screen and (max-width: 760px) {
   body {
-    padding: 25px;
+    padding: 30px;
   }
 
   canvas {
