@@ -2,49 +2,43 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <meta name="description" content="The freshest links from the Internet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Incompleto – Inbox zero</title>
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title="Incompleto – Inbox zero"
-      href="https://inbox.incomple.to/rss"
-    />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <header>
-      <canvas class="zdog-canvas" width="200" height="200"></canvas>
-    </header>
+    <canvas class="zdog-canvas" width="250" height="250"></canvas>
 
     <main>
-      <% feed.items.forEach(function(item){ %>
-        <section>
-          <div class="cover">
-            <a href="<%= item.url %>">
-              <img src="<%= item.enclosure.url %>" />
-            </a>
-          </div>
+      <header>
+        <h1>Inbox zero</h1>
+        <p>
+          The freshest links from the Internet, shared by
+          <a href="https://incomple.to">incomple.to</a> 🌀
+        </p>
+      </header>
 
-          <div class="desc">
-            <h2><a href="<%= item.url %>"><%= item.url %></a></h2>
-
-            <%- item.description %>
-          </div>
-        </section>
-      <% }); %>
+      <div class="links">
+        <% feed.items.forEach(function(item){ %>
+        <div class="link" data-preview="<%= item.enclosure.url %>">
+          <h2 class="title"><a href="<%= item.url %>"><%= item.title %></a></h2>
+          <div class="description"><%- item.description %></div>
+          <p class="datetime">Posted <%= item.timeago %></p>
+        </div>
+        <% }); %>
+      </div>
 
       <footer>
         <ul>
-          <li><a href="https://are.na/incompleto/inbox-zero">Are.na</a></li>
-          <li><a href="/rss">RSS Feed</a></li>
+          <li><a href="https://are.na/incompleto/inbox-zero" class="button-blue">Even more links in Are.na</a></li>
+          <li><a href="/rss" class="button-orange">Suscribe to RSS Feed</a></li>
         </ul>
       </footer>
     </main>
 
-
     <script src="https://unpkg.com/zdog@1/dist/zdog.dist.min.js"></script>
-    <script src="./script.js"></script>
+    <script src="/script.js"></script>
   </body>
 </html>

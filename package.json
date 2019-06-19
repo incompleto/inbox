@@ -12,7 +12,8 @@
     "dotenv": "^8.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "rss": "^1.2.2"
+    "rss": "^1.2.2",
+    "timeago.js": "^4.0.0-beta.2"
   },
   "repository": {
     "url": "git@github.com:incompleto/inbox-zero.git"

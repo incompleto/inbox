@@ -1,5 +1,7 @@
 /* style.css */
 
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,600&display=swap");
+
 html,
 body {
   height: 100%;
@@ -7,80 +9,90 @@ body {
 }
 
 body {
-  background: #f6f6f6;
+  background: #fff;
   position: relative;
-  font-family: sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
+  cursor: default;
+  padding: 50px;
 }
 
 a {
-  color: #4196bf;
+  color: #016ec8;
+  font-weight: 500;
+  text-decoration: none;
 }
 
 canvas {
-  cursor: grab;
-  width: 200px;
-  height: 200px;
   position: fixed;
   top: 0;
   left: 0;
-}
-
-canvas:active {
-  cursor: grabbing;
+  width: 250px;
+  height: 250px;
 }
 
 main {
-  margin-left: 200px;
-  min-width: 400px;
-  max-width: 800px;
-  margin-top: 3.2rem;
-  margin-right: 3.2rem;
-  overflow: auto;
+  margin: 0 0 0 200px;
+  max-width: 720px;
 }
 
-section {
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 1.6rem;
-  padding-bottom: 1.6rem;
-  border-bottom: 1px dashed #ddd;
+header {
+  margin-bottom: 2.4rem;
 }
 
-section .cover {
-  width: 30%;
-}
-
-section .cover img {
-  width: 100%;
-}
-
-section .desc {
-  width: 65%;
-  margin-left: 5%;
-}
-
-section .desc h2,
-section .desc p {
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
   margin: 0;
-  line-height: 1.3rem;
+  margin-bottom: 0.8rem;
+  color: #222;
 }
 
-section .desc h2 {
-  font-size: 0.9rem;
-  margin-bottom: 1.6rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-weight: normal;
-}
-
-section .desc p {
-  font-size: 0.9rem;
+header p {
+  color: #333;
   margin: 0;
+  padding: 0;
+  font-size: 0.96rem;
+  line-height: 1.4rem;
+}
+
+.link {
+  margin-bottom: 3rem;
+  display: block;
+  cursor: default;
+}
+
+.title {
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  font-weight: bold;
+  line-height: 1.8rem;
+  margin: 0;
+  padding: 0;
+}
+
+.title a {
+  border-bottom: 2px solid #016ec8;
+}
+
+.description p {
+  color: #333;
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+  margin: 0.8rem 0 0 0;
+  padding: 0;
+}
+
+.datetime {
+  color: #888;
+  font-size: 0.9rem;
+  line-height: 1.4rem;
+  margin: 0.6rem 0 0 0;
+  padding: 0;
+  font-weight: 400;
 }
 
 footer {
-  margin-bottom: 1.6rem;
+  padding: 2rem 0 4rem 0;
 }
 
 footer ul {
@@ -89,6 +101,86 @@ footer ul {
 }
 
 footer li {
-  display: inline;
-  margin-right: 1rem;
+  display: inline-block;
+  margin-right: 1.2rem;
+  margin-bottom: 1.6rem;
+}
+
+footer a {
+  transition: all 0.1s;
+  display: block;
+  text-align: center;
+}
+
+footer a:active {
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+.button-blue {
+  background-color: #0172cf;
+  border-radius: 8px;
+  border: 3px solid #005fb9;
+  box-shadow: #005fb9 3px 3px 0;
+  color: #fff;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+}
+
+.button-blue:hover {
+  background-color: #007de4;
+}
+
+.button-orange {
+  background-color: #ff7601;
+  border-radius: 8px;
+  border: 3px solid #eb6c00;
+  box-shadow: #eb6c00 3px 3px 0;
+  color: #fff;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+}
+
+.button-orange:hover {
+  background-color: #ff8209;
+}
+
+.popover {
+  transition: all 0.01s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  display: block;
+  background-color: #fff;
+}
+
+.popover img {
+  width: 200px;
+  display: block;
+  margin: 0;
+  padding: 0;
+  box-shadow: rgba(0, 0, 0, 0.4) 2px 2px 10px;
+  background-color: #fff;
+}
+
+@media only screen and (max-width: 760px) {
+  canvas {
+    display: block;
+    height: 250px;
+    margin: 0 auto;
+    position: relative;
+    width: 250px;
+  }
+
+  main {
+    margin: 50px 0 0 0;
+    max-width: 600px;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
 }

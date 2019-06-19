@@ -8,6 +8,8 @@ const express = require("express");
 const path = require("path");
 const app = express();
 
+const timeago = require("timeago.js");
+
 const URL = "inbox-zero";
 const TITLE = "Incompleto – Inbox zero";
 const FEED_URL = "https://inbox.incomple.to";
@@ -89,6 +91,10 @@ app.get("/", function(req, res) {
   let feed = getFeed();
 
   feed.then(function(result) {
+    result.items.forEach(function(item) {
+      item.timeago = timeago.format(item.date);
+    });
+
     res.render("index", { feed: result });
   });
 });
