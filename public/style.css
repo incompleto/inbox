@@ -78,15 +78,15 @@ header p {
   color: #333;
   font-size: 0.9rem;
   line-height: 1.2rem;
-  margin: 0.8rem 0 0 0;
+  margin: 1.2rem 0 0 0;
   padding: 0;
 }
 
 .datetime {
-  color: #888;
+  color: #777;
   font-size: 0.9rem;
   line-height: 1.4rem;
-  margin: 0.6rem 0 0 0;
+  margin: 1rem 0 0 0;
   padding: 0;
   font-weight: 400;
 }
@@ -166,6 +166,10 @@ footer a:active {
 }
 
 @media only screen and (max-width: 760px) {
+  body {
+    padding: 25px;
+  }
+
   canvas {
     display: block;
     height: 250px;
